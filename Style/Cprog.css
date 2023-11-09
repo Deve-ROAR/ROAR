@@ -1,0 +1,131 @@
+
+body{
+
+    
+}
+.Beg{
+
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 128, 255);
+    text-align:center;
+    padding-top:20px;
+    padding-bottom: 20px;
+    font-size:larger;
+    font-family:Arial, Helvetica, sans-serif;
+    border-radius:10px;
+    font-family:cursive
+
+}
+
+.dev{
+
+    color:white;
+    margin-top: -40px;
+    font-size:small;
+    margin-left:432px;
+
+
+}
+
+.sect1{
+
+    font-family: monospace;
+    background-color: rgb(241, 247, 255);
+    font-size: 5mm;
+    margin-left: 10px;
+}
+
+
+
+.Thero{
+
+    color:black;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+
+}
+
+span{
+
+    color:rgb(0, 128, 255);
+}
+
+.downbut{
+
+    border:none;
+    background-color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:medium;
+    color:rgb(0, 128, 255);
+    text-decoration: underline;
+}
+
+.downbut:active{ 
+
+    color:rgb(0, 97, 193)
+
+}
+
+.comment1{
+
+    margin-left:80px;
+    margin-top:-21px;
+    color:rgb(0, 128, 255);
+    font-family:monospace
+
+}
+.comment2{
+
+    margin-left:120px;
+    margin-top:-18px;
+    color:rgb(0, 128, 255);
+    font-family:monospace
+
+}
+.comment3{
+
+    margin-left:190px;
+    margin-top:-19px;
+    color:rgb(0, 128, 255);
+    font-family:monospace
+
+}
+
+.something{
+
+    margin-left: 60px;;
+}
+
+.align-exam1{
+
+    background-color: grey;
+    margin-left:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+
+
+
+
+}
+
+.same{
+
+    margin-left:75px ;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+
+
+}
+
+.same1{
+
+    margin-left:140px;
+    margin-top:-34.5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.Sec12{
+
+    text-decoration: underline;
+    font-family: monospace; ;
+}
