@@ -1,0 +1,15 @@
+// Printing of numbers
+
+#include<stdio.h>
+#include<conio.h>
+
+void main()
+{
+	int a;
+
+	clrscr();
+
+	printf("123456789");
+
+	getch();
+}
