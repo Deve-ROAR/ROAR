@@ -13,7 +13,7 @@ body{
     font-size:larger;
     font-family:Arial, Helvetica, sans-serif;
     border-radius:10px;
-    font-family:cursive
+    font-family:cursive;
 
 }
 
@@ -79,7 +79,7 @@ span{
     margin-left:120px;
     margin-top:-18px;
     color:rgb(0, 128, 255);
-    font-family:monospace
+    font-family:monospace;
 
 }
 .comment3{
@@ -87,7 +87,7 @@ span{
     margin-left:190px;
     margin-top:-19px;
     color:rgb(0, 128, 255);
-    font-family:monospace
+    font-family:monospace;
 
 }
 
@@ -127,5 +127,5 @@ span{
 .Sec12{
 
     text-decoration: underline;
-    font-family: monospace; ;
+    font-family: monospace; 
 }
