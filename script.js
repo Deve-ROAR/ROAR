@@ -82,14 +82,14 @@ function pauseResume() {
         harmonyOscillator.stop();
 
         isPlaying = false;
-        pauseResumeButton.innerHTML = 'Resume';
+        pauseResumeButton.innerHTML = 'Stop';
     } else {
         // Resume the oscillators
         melodyOscillator.start();
         harmonyOscillator.start();
 
         isPlaying = true;
-        pauseResumeButton.innerHTML = 'Pause';
+        pauseResumeButton.innerHTML = 'Stop';
     }
 }
 
