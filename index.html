@@ -1,19 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Song Generator</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stellar Dev Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Song Generator</h1>
-    <div class="song-container">
-        <button id="generate-song">Generate Song</button>
-        <button id="pause-resume">Stop</button>
-        <div id="song-output"></div>
+  <header class="header container">
+    <div class="brand">
+      <div class="logo">Y</div>
+      <div>
+        <div class="name">Your Name</div>
+        <div class="role">Senior Software Developer — Full-Stack</div>
+      </div>
     </div>
+    <nav class="nav">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact" class="hire">Hire me</a>
+    </nav>
+  </header>
 
-    <script src="script.js"></script>
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-text fade-in-left">
+        <p class="availability">Available for hire — Open to remote</p>
+        <h1>Your Name — <span class="gradient">Senior Software Developer — Full-Stack</span></h1>
+        <p class="tagline">Building fast, maintainable products with delightful UX.</p>
+        <p class="intro">I design and ship production-ready web applications. I focus on performance, developer experience, and clean interfaces that scale.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn primary">Contact — Let's talk</a>
+          <a href="#projects" class="btn outline">See projects</a>
+        </div>
+        <div class="links">
+          <a href="mailto:you@domain.com">📧 you@domain.com</a>
+          <a href="#">💻 GitHub</a>
+          <a href="#">🔗 LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="featured-card fade-in-right">
+        <div>
+          <div class="card-head">
+            <div>
+              <p class="muted">Featured Project</p>
+              <h3>Aurora Analytics</h3>
+            </div>
+            <p class="muted">Dec 2024</p>
+          </div>
+          <p class="desc">Realtime dashboard for operations teams with interactive charts and customizable widgets.</p>
+          <div class="tags">
+            <span>React</span><span>GraphQL</span><span>Postgres</span>
+          </div>
+        </div>
+        <div class="card-foot">
+          <p>Performance focus • Accessible • Tested</p>
+          <a href="#projects">See more →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="skills fade-in-up">
+      <h2>Skills & Technologies</h2>
+      <p>Technologies I use to build robust, scalable products.</p>
+      <div class="skills-grid">
+        <span>React</span><span>TypeScript</span><span>Node.js</span><span>Next.js</span>
+        <span>GraphQL</span><span>Postgres</span><span>Docker</span><span>AWS</span>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects fade-in-up">
+      <h2>Selected Projects</h2>
+      <p>A concise selection of recent work with impact metrics and links.</p>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Aurora Analytics</h3>
+          <p>Realtime analytics dashboard with streaming charts and role-based access.</p>
+          <div class="tags"><span>React</span><span>GraphQL</span><span>Postgres</span></div>
+          <div class="proj-foot">
+            <a href="#">Open →</a>
+            <p>Impact: <strong>+32% conversion</strong></p>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Nimbus Docs</h3>
+          <p>Collaborative docs editor with live cursors, operational transforms, and offline sync.</p>
+          <div class="tags"><span>Next.js</span><span>Prisma</span><span>Redis</span></div>
+          <div class="proj-foot">
+            <a href="#">Open →</a>
+            <p>Impact: <strong>+27% engagement</strong></p>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Pulse Mobile</h3>
+          <p>Cross-platform mobile app with secure auth and push notifications.</p>
+          <div class="tags"><span>React Native</span><span>Expo</span><span>Firebase</span></div>
+          <div class="proj-foot">
+            <a href="#">Open →</a>
+            <p>Impact: <strong>+19% retention</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="experience fade-in-up">
+      <h2>Experience</h2>
+      <div class="exp-card">
+        <h3>Senior Software Engineer</h3>
+        <p class="muted">Acme Cloud — Remote (2022 — Present)</p>
+        <ul>
+          <li>Led migration from monolith to microservices, reducing deploy times by 70%.</li>
+          <li>Introduced type-safe GraphQL API with measurable performance gains.</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <h3>Software Engineer</h3>
+        <p class="muted">BrightApps (2019 — 2022)</p>
+        <ul>
+          <li>Built a modular design system used across three product teams.</li>
+          <li>Optimized React rendering for 40% fewer CPU frames.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact fade-in-up">
+      <h2>Let’s build something great</h2>
+      <p>Open to contract and full-time roles. Available for remote and relocation conversations.</p>
+
+      <div class="contact-grid">
+        <div>
+          <a href="mailto:you@domain.com" class="btn primary">Email me</a>
+          <a href="Your_Resume.pdf" class="btn outline">Download CV</a>
+        </div>
+
+        <form class="form">
+          <label>Name</label>
+          <input type="text" placeholder="Your name" />
+          <label>Email</label>
+          <input type="email" placeholder="you@domain.com" />
+          <label>Message</label>
+          <textarea placeholder="Tell me about the project"></textarea>
+          <button class="btn primary" type="button">Send message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>© <span id="year"></span> Your Name. Designed for clarity, performance, and delight.</footer>
+  </main>
 </body>
 </html>
