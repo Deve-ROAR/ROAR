@@ -1,497 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROAR - Full-Stack Developer Resume</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-            overflow-x: hidden;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: background 0.3s ease;
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #fff;
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .nav-links a:hover {
-            color: #4fc3f7;
-        }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-        .hamburger span {
-            width: 25px;
-            height: 3px;
-            background: #fff;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        #hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></svg>') repeat, linear-gradient(135deg, #0f2027 0%, #203a43 100%);
-        }
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.3s forwards;
-        }
-        .cta-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: #4fc3f7;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.6s forwards;
-        }
-        .cta-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(79, 195, 247, 0.3);
-        }
-
-        /* Sections */
-        section {
-            padding: 80px 0;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        section.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #fff;
-        }
-
-        /* About */
-        #about {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-        }
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-        .profile-img {
-            width: 100%;
-            border-radius: 50%;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-        }
-        .profile-img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Skills */
-        #skills {
-            background: rgba(0, 0, 0, 0.2);
-        }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        .skill-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(79, 195, 247, 0.2);
-        }
-        .skill-card h3 {
-            color: #4fc3f7;
-            margin-bottom: 1rem;
-        }
-
-        /* Experience & Projects */
-        #experience, #projects {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #4fc3f7;
-            transform: translateX(-50%);
-        }
-        .timeline-item {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        .timeline-item:nth-child(even) {
-            transform: translateX(50%);
-        }
-        .timeline-item:nth-child(odd) {
-            transform: translateX(-50%);
-        }
-        .timeline-content {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
-        }
-        .timeline-content:hover {
-            transform: scale(1.02);
-        }
-        .timeline-content h3 {
-            color: #4fc3f7;
-            margin-bottom: 0.5rem;
-        }
-        .timeline-date {
-            color: #ccc;
-            font-size: 0.9rem;
-        }
-
-        /* Education */
-        #education {
-            background: rgba(0, 0, 0, 0.2);
-        }
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        .edu-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        .edu-card:hover {
-            transform: rotate(2deg) scale(1.02);
-        }
-
-        /* Contact */
-        #contact {
-            background: rgba(255, 255, 255, 0.1);
-            text-align: center;
-        }
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        input, textarea {
-            padding: 1rem;
-            border: none;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.9);
-            font-family: inherit;
-        }
-        button {
-            padding: 1rem;
-            background: #4fc3f7;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        button:hover {
-            background: #29b6f6;
-        }
-        .success-msg {
-            display: none;
-            color: #4caf50;
-            margin-top: 1rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.9);
-                flex-direction: column;
-                padding: 1rem;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            .timeline::before {
-                left: 20px;
-            }
-            .timeline-item {
-                grid-template-columns: 1fr;
-                transform: none;
-            }
-            .timeline-item:nth-child(even), .timeline-item:nth-child(odd) {
-                padding-left: 50px;
-            }
-            #hero h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stellar Dev Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Roshan arul</div>
-            <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
-    </header>
+  <header class="header container">
+    <div class="brand">
+      <div class="logo">Y</div>
+      <div>
+        <div class="name">Your Name</div>
+        <div class="role">Senior Software Developer — Full-Stack</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact" class="hire">Hire me</a>
+    </nav>
+  </header>
 
-    <section id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Full-Stack Developer</h1>
-                <p>Building innovative web solutions with passion and precision.</p>
-                <a href="#contact" class="cta-btn">Get In Touch</a>
-            </div>
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-text fade-in-left">
+        <p class="availability">Available for hire — Open to remote</p>
+        <h1>Your Name — <span class="gradient">Senior Software Developer — Full-Stack</span></h1>
+        <p class="tagline">Building fast, maintainable products with delightful UX.</p>
+        <p class="intro">I design and ship production-ready web applications. I focus on performance, developer experience, and clean interfaces that scale.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn primary">Contact — Let's talk</a>
+          <a href="#projects" class="btn outline">See projects</a>
         </div>
+        <div class="links">
+          <a href="mailto:you@domain.com">📧 you@domain.com</a>
+          <a href="#">💻 GitHub</a>
+          <a href="#">🔗 LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="featured-card fade-in-right">
+        <div>
+          <div class="card-head">
+            <div>
+              <p class="muted">Featured Project</p>
+              <h3>Aurora Analytics</h3>
+            </div>
+            <p class="muted">Dec 2024</p>
+          </div>
+          <p class="desc">Realtime dashboard for operations teams with interactive charts and customizable widgets.</p>
+          <div class="tags">
+            <span>React</span><span>GraphQL</span><span>Postgres</span>
+          </div>
+        </div>
+        <div class="card-foot">
+          <p>Performance focus • Accessible • Tested</p>
+          <a href="#projects">See more →</a>
+        </div>
+      </div>
     </section>
 
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a passionate Full-Stack Developer with 5+ years of experience in creating dynamic, user-friendly web applications. I specialize in JavaScript, React, Node.js, and modern UI/UX design. When not coding, I enjoy hiking and contributing to open-source projects.</p>
-                    <p>Let's collaborate to bring your ideas to life!</p>
-                </div>
-                <img src="https://via.placeholder.com/300x300?text=Alex+Johnson" alt="Profile" class="profile-img">
-            </div>
-        </div>
+    <!-- Skills -->
+    <section id="skills" class="skills fade-in-up">
+      <h2>Skills & Technologies</h2>
+      <p>Technologies I use to build robust, scalable products.</p>
+      <div class="skills-grid">
+        <span>React</span><span>TypeScript</span><span>Node.js</span><span>Next.js</span>
+        <span>GraphQL</span><span>Postgres</span><span>Docker</span><span>AWS</span>
+      </div>
     </section>
 
-    <section id="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Frontend</h3>
-                    <p>HTML5, CSS3, JavaScript, React, Vue.js</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Backend</h3>
-                    <p>Node.js, Express, Python, MongoDB, SQL</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Tools</h3>
-                    <p>Git, Docker, AWS, Figma, Webpack</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Other</h3>
-                    <p>Responsive Design, Animation, Testing (Jest)</p>
-                </div>
-            </div>
+    <!-- Projects -->
+    <section id="projects" class="projects fade-in-up">
+      <h2>Selected Projects</h2>
+      <p>A concise selection of recent work with impact metrics and links.</p>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Aurora Analytics</h3>
+          <p>Realtime analytics dashboard with streaming charts and role-based access.</p>
+          <div class="tags"><span>React</span><span>GraphQL</span><span>Postgres</span></div>
+          <div class="proj-foot">
+            <a href="#">Open →</a>
+            <p>Impact: <strong>+32% conversion</strong></p>
+          </div>
         </div>
+        <div class="project-card">
+          <h3>Nimbus Docs</h3>
+          <p>Collaborative docs editor with live cursors, operational transforms, and offline sync.</p>
+          <div class="tags"><span>Next.js</span><span>Prisma</span><span>Redis</span></div>
+          <div class="proj-foot">
+            <a href="#">Open →</a>
+            <p>Impact: <strong>+27% engagement</strong></p>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Pulse Mobile</h3>
+          <p>Cross-platform mobile app with secure auth and push notifications.</p>
+          <div class="tags"><span>React Native</span><span>Expo</span><span>Firebase</span></div>
+          <div class="proj-foot">
+            <a href="#">Open →</a>
+            <p>Impact: <strong>+19% retention</strong></p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="experience">
-        <div class="container">
-            <h2>Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Senior Developer at TechCorp</h3>
-                        <div class="timeline-date">2021 - Present</div>
-                        <p>Led development of scalable e-commerce platform using React and Node.js, improving load times by 40%.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Full-Stack Developer at Innovate Inc.</h3>
-                        <div class="timeline-date">2019 - 2021</div>
-                        <p>Built RESTful APIs and integrated third-party services for a mobile app backend.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Junior Developer at StartUpX</h3>
-                        <div class="timeline-date">2018 - 2019</div>
-                        <p>Contributed to frontend UI components and bug fixes in a team environment.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Experience -->
+    <section id="experience" class="experience fade-in-up">
+      <h2>Experience</h2>
+      <div class="exp-card">
+        <h3>Senior Software Engineer</h3>
+        <p class="muted">Acme Cloud — Remote (2022 — Present)</p>
+        <ul>
+          <li>Led migration from monolith to microservices, reducing deploy times by 70%.</li>
+          <li>Introduced type-safe GraphQL API with measurable performance gains.</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <h3>Software Engineer</h3>
+        <p class="muted">BrightApps (2019 — 2022)</p>
+        <ul>
+          <li>Built a modular design system used across three product teams.</li>
+          <li>Optimized React rendering for 40% fewer CPU frames.</li>
+        </ul>
+      </div>
     </section>
 
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>E-Commerce Dashboard</h3>
-                        <div class="timeline-date">2023</div>
-                        <p>A real-time analytics dashboard built with React, Chart.js, and Firebase. Features user authentication and data visualization.</p>
-                        <a href="#" style="color: #4fc3f7;">View Project</a>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>Task Management App</h3>
-                        <div class="timeline-date">2022</div>
-                        <p>Full-stack app using MERN stack with drag-and-drop functionality and collaborative features.</p>
-                        <a href="#" style="color: #4fc3f7;">View Project</a>
-                    </div>
-                </div>
-            </div>
+    <!-- Contact -->
+    <section id="contact" class="contact fade-in-up">
+      <h2>Let’s build something great</h2>
+      <p>Open to contract and full-time roles. Available for remote and relocation conversations.</p>
+
+      <div class="contact-grid">
+        <div>
+          <a href="mailto:you@domain.com" class="btn primary">Email me</a>
+          <a href="Your_Resume.pdf" class="btn outline">Download CV</a>
         </div>
+
+        <form class="form">
+          <label>Name</label>
+          <input type="text" placeholder="Your name" />
+          <label>Email</label>
+          <input type="email" placeholder="you@domain.com" />
+          <label>Message</label>
+          <textarea placeholder="Tell me about the project"></textarea>
+          <button class="btn primary" type="button">Send message</button>
+        </form>
+      </div>
     </section>
 
-    <section id="education">
-        <div class="container">
-            <h2>Education</h2>
-            <div class="education-grid">
-                <div class="edu-card">
-                    <h3>B.S. in Computer Science</h3>
-                    <p>University of Technology, 2018</p>
-                    <p>GPA: 4.0/4.0</p>
-                </div>
-                <div class="edu-card">
-                    <h3>Certifications</h3>
-                    <p>AWS Certified Developer, Google UX Design</p>
-                    <p>2020 - 2022</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <p style="color: #fff; text-align: center; margin-bottom: 2rem;">Email: roar08518@icloud.com | LinkedIn: linkedin.com/in/ROAR | GitHub: Deve-ROAR</p>
-            <form id="contactForm">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit">Send Message</button>
-                <p class="success-msg" id="successMsg">Message sent successfully! I'll get back to you soon.</p>
-            </form>
-        </div>
-    </section>
-
-    <script>
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-               
+    <footer>© <span id="year"></span> Your Name. Designed for clarity, performance, and delight.</footer>
+  </main>
+</body>
+</html>
